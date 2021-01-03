@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:bit-sprint3-cms}/database/database.sqlite",
+            "name": "sprint3"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

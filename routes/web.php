@@ -15,3 +15,4 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/posts', [PostController::class, 'getAllPublished']);
+Route::get('/post/{slug}', [PostController::class, 'getSinglePublished']);

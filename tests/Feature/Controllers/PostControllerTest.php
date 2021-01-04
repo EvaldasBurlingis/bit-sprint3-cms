@@ -21,8 +21,8 @@ class ExampleTest extends TestCase
             Post::factory()->create(),
         ]);
 
-        $response = $this->get('/posts');
-
+        $response = $this->get('/');
+        
         $response->assertStatus(200);
         $this->assertCount(3, $response->data('posts'));
         $posts->assertEquals($response->data('posts'));

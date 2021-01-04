@@ -10,11 +10,11 @@ class PostRepository implements PostRepositoryInterface
 {
     public function getAllPublished() : Collection
     {
-        return Post::where('status', 'published')->get();
+        return Post::where('status_id', 1)->get();
     }
 
     public function getSinglePublished(String $slug) : Post
     {
-        return Post::where('slug', '=', $slug)->where('status', 'published')->first();
+        return Post::where('slug', '=', $slug)->where('status_id', 1)->first();
     }
 }

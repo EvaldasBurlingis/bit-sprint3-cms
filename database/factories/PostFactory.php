@@ -28,7 +28,7 @@ class PostFactory extends Factory
             'title'      => $this->faker->sentence(),
             'body'       => $this->faker->text(300),
             'user_id'    => 1,
-            'status'     => 'published',
+            'status_id'  => 1,
             'slug'       => $this->faker->unique()->slug(),
             'created_at' => now()
         ];

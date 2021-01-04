@@ -19,8 +19,8 @@ Route::get('/', [PostController::class, 'getAllPublished']);
 Route::get('/post/{slug}', [PostController::class, 'getSinglePublished']);
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('authenticated.dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

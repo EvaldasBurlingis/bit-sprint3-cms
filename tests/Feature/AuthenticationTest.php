@@ -42,4 +42,24 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
     }
+
+       /** @test */
+       public function only_authenticated_users_can_access_dashboard()
+       {   
+           $response = $this->get('/dashboard');
+   
+           $response->assertStatus(302);
+           $response->assertRedirect('/login');
+       }
+       
+       /** @test */
+       public function render_writer_dashboard()
+       {   
+           $user = User::factory()->create();
+           
+           $response = $this->actingAs($user)
+                           ->get('/dashboard');
+   
+           $response->assertStatus(200);
+       }
 }

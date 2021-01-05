@@ -23,4 +23,6 @@ Route::get('/dashboard', function () {
     return view('authenticated.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::post('/post/new', [PostController::class, 'store'])->middleware(['auth']);
+
 require __DIR__.'/auth.php';

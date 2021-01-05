@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
@@ -40,5 +41,39 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewHas('post');
         $response->assertViewHasAll(['post' => $post]);
+    }
+
+    /** @test */
+    public function admin_can_create_new_post()
+    {   
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->post('/post/new', [
+            'title'     => 'My test title',
+            'body'      => 'My test body',
+            'status_id' => 1
+        ]);
+        
+
+        $response->assertStatus(200);
+        $this->assertDatabaseCount('posts', 1);
+        $this->assertDatabaseHas('posts', [
+            'title' => 'My test title'
+        ]);
+    }
+
+    /** @test */
+    public function visitor_cannot_submit_post()
+    {   
+
+        $response = $this->post('/post/new', [
+            'title'     => 'My test title',
+            'body'      => 'My test body',
+            'status_id' => 1
+        ]);
+        
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+        $this->assertDatabaseCount('posts', 0);
     }
 }

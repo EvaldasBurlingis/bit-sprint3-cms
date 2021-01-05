@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostCreateRequest;
 use App\Repository\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
@@ -13,6 +15,11 @@ class PostController extends Controller
         $this->postRepository = $postRepository;
     }
     
+    /**
+     * Display all published posts
+     * 
+     * @return \Illuminate\View\View
+     */
     public function getAllPublished()
     {
         $posts = $this->postRepository->getAllPublished();
@@ -22,6 +29,12 @@ class PostController extends Controller
         ]);
     }
 
+
+    /**
+     * Display single published post by slug
+     * 
+     * @return \Illuminate\View\View
+     */
     public function getSinglePublished($slug)
     {   
         $post = $this->postRepository->getSinglePublished($slug);
@@ -29,5 +42,16 @@ class PostController extends Controller
         return view('posts.post', [
             'post' => $post
         ]);
+    }
+
+    /**
+     * Create new post
+     * 
+     * @return \Illuminate\View\View
+     */
+    public function store(PostCreateRequest $request)
+    {
+        $post = $this->postRepository->store($request);
+
     }
 }

@@ -13,6 +13,14 @@ class Post extends Model
 
     const EXCERPT_LENGTH = 150;
 
+    protected $fillable = [
+        'title',
+        'body',
+        'status_id',
+        'user_id',
+        'slug'
+    ];
+
     public function status()
     {
         return $this->hasOne(PostStatus::class);

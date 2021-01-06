@@ -34,6 +34,9 @@ Required:
     # change directory
     cd bit-sprint3-cms
 
+    # copy .env
+    cp .env .env.example
+
     # install composer packages
     composer install
 

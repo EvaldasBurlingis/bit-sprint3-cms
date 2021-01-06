@@ -63,23 +63,4 @@ class AdminPostControllerTest extends TestCase
         $response->assertSuccessful();
     }
 
-    /** @test */
-    public function authenticated_user_can_submit_new_post()
-    {
-        // $this->withoutExceptionHandling();
-
-        $user = User::factory()->create();
-        $post = [
-            'title'     => 'test title',
-            'body'      => 'test body',
-            'status_id' => 1
-        ];
-
-        $response = $this->actingAs($user)->post('/dashboard/posts/new', [$post]);
-
-        // $response->dumpSession();
-
-        // $response->assertSuccessful();
-        $this->assertDatabaseCount('posts', 1);
-    }
 }

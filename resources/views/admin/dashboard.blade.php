@@ -18,6 +18,11 @@
                 </div>
 
                 <div>
+                    @if ($post->status->id === 1)
+                        <span class="bg-green-600 text-xs text-white text-center block py-1 rounded-full w-24">{{ $post->status->title }}</span>
+                    @else
+                    <span class="bg-yellow-600 text-xs text-white py-1 text-center block rounded-full w-24">{{ $post->status->title }}</span>
+                    @endif
                 </div>
             </div>
         @endforeach

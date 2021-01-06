@@ -7,11 +7,14 @@
         </div>
 
         @foreach($posts as $post)
-            <a 
-                href="/posts/{{ $post->slug }}" 
-                class="block mb-1 font-medium text-base tracking-tight text-gray-800 hover:text-black">
-                {{ $post->title }}
-            </a>
+            <article class="flex items-center">
+                <time class="text-xs text-gray-500 font-light mr-4">{{ $post->created_at->format('j F, Y') }}</time>
+                <a 
+                    href="/posts/{{ $post->slug }}" 
+                    class="block mb-1 font-medium text-base tracking-tight text-gray-800 hover:text-black">
+                    {{ $post->title }}
+                </a>
+            </article>
         @endforeach
 
     </section>

@@ -45,5 +45,9 @@ class PostController extends Controller
 
         $this->postRepository->store($request);
 
+        $request->session()->flash('success', 'Blog post created successfully');
+        
+        return view('admin.posts.new');
+
     }
 }

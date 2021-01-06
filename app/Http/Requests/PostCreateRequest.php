@@ -25,8 +25,9 @@ class PostCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'     => 'required|string|unique:posts,title',
-            'status_id' => 'required|between:1,2'
+            'title'           => 'required|string|unique:posts,title',
+            'status_id'       => 'required|between:1,2',
+            'post-trixFields' => 'required'
         ];
     }
 }

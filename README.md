@@ -38,7 +38,7 @@ Required:
     cp .env .env.example
 
     # install composer packages
-    composer install
+    composer update
 
     # install npm packages
     npm install

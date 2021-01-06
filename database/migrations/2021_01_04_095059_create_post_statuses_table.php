@@ -15,7 +15,7 @@ class CreatePostStatusesTable extends Migration
     {
         Schema::create('post_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->string('title');
         });
     }
 

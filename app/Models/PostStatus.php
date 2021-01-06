@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PostStatus extends Model
 {
     use HasFactory;
+
 }

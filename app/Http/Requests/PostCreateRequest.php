@@ -14,7 +14,7 @@ class PostCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -26,11 +26,7 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'title'     => 'required|string|unique:posts,title',
-            'body'      => 'required|string',
             'status_id' => 'required|between:1,2'
         ];
     }
-
-
-
 }

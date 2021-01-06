@@ -21,11 +21,5 @@
             <input type="submit" value="Create" class="bg-blue-600 text-white py-2 text-sm px-4 rounded-md hover:bg-blue-700">
         </form>   
     </section>
-
-    @if (session('success'))
-        <div class="bg-green-600 py-4 px-6 mt-4 text-white rounded-md text-base inline-block">
-            {{ session('success') }}
-        </div>
-    @endif
-
+    
 </x-app-layout>

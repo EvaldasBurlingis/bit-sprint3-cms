@@ -2,9 +2,10 @@
 
 namespace App\Repository\Interfaces;
 
-use App\Http\Requests\PostCreateRequest;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostUpdateRequest;
 
 interface PostRepositoryInterface
 {
@@ -17,4 +18,11 @@ interface PostRepositoryInterface
    public function getAll() : ?Collection;
 
    public function store(PostCreateRequest $request) : ?Model;
+
+   public function getById(Int $id) : ?Model;
+
+   public function destroy(Int $id) : void;
+
+   public function edit(PostUpdateRequest $request) : ?Model;
+
 }

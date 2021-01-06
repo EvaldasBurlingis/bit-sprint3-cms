@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Repository\Interfaces\PostRepositoryInterface;
 
 class PostRepository implements PostRepositoryInterface
@@ -46,4 +47,33 @@ class PostRepository implements PostRepositoryInterface
 
         return $post;
     }
+
+    public function edit(PostUpdateRequest $request) : Post
+    {
+        Post::find($request->id)
+            ->update([
+                'title'             => $request->title,
+                'post-trixFields'   => request('post-trixFields'),
+                'status_id'         => $request->status_id,
+                'slug'              => Str::slug($request->title, '-')
+            ]);
+
+        $post = Post::find($request->id);
+
+        return $post;
+    }
+
+    public function destroy(Int $id): void
+    {
+        Post::destroy($id);
+    }
+
+    public function getById(Int $id): ?Post
+    {
+        $post = Post::find($id);
+
+        return $post;
+    }
+
+
 }

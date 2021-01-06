@@ -14,7 +14,7 @@
             <div class="py-4 border-b border-blue-300 flex justify-between items-center">
                 <div>
                     <span class="mr-2 text-sm text-gray-500">{{ $post->created_at->format('j F, Y') }}</span>
-                    <a href="/dashboard/post/preview/{{ $post->id }}" class="text-base font-semibold text-black hover:underline hover:text-blue-700">{{ $post->title }}</a>
+                    <a href="/dashboard/posts/{{ $post->id }}" class="text-base font-semibold text-black hover:underline hover:text-blue-700">{{ $post->title }}</a>
                 </div>
 
                 <div>

@@ -30,7 +30,7 @@ class PostController extends Controller
      * 
      * @return \Illuminate\View\View
      */
-    public function show($slug)
+    public function show($date, $slug)
     {   
         $post = $this->postRepository->getSinglePublished($slug);
 

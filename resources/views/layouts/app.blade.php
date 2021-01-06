@@ -34,6 +34,12 @@
         </div>
 
         <main class="px-4 max-w-6xl mx-auto">
+            @if (session('success'))
+                <div class="text-green-600 font-medium rounded-md text-base inline-block w-full py-6">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             {{ $slot }}
         </main>
     </body>

@@ -21,11 +21,14 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{date}/{slug}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/dashboard', [AdminPostController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard/posts/new', [AdminPostController::class, 'create'])->middleware(['auth']);
 Route::post('/dashboard/posts/new', [AdminPostController::class, 'store'])->middleware('auth');
+Route::get('/dashboard/posts/{id}', [AdminPostController::class, 'show'])->middleware(['auth']);
+Route::delete('/dashboard/posts/{id}', [AdminPostController::class, 'destroy'])->middleware(['auth']);
+Route::patch('/dashboard/posts/{id}', [AdminPostController::class, 'edit'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

@@ -15,8 +15,8 @@ class PostStatusSeeder extends Seeder
     public function run()
     {
         DB::table('post_statuses')->insert([
-            ['status' => 'published'],
-            ['status' => 'draft']
+            ['title' => 'published'],
+            ['title' => 'draft']
         ]);
     }
 }

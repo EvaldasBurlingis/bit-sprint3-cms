@@ -22,6 +22,19 @@ CMS built with laravel framework.
 
 ## Installation
 
+Project use sqlite database and .env.example file is made to match .env file. If you want to use any other db than sqlite don't forget to update .env file with
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+**NOTE**
+ You need to run migrations and seeders only if you connect to other db than sqlite
+
 Required:
     * PHP > v.7.4.9
     * Composer
